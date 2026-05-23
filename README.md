@@ -1,6 +1,11 @@
-# Cleanlytics AI
+# 🧹 Cleanlytics AI
 
-AI-powered enterprise data quality and cleaning automation platform.
+AI-Powered Enterprise Data Quality & Cleaning Automation Platform
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+![Scikit-Learn](https://img.shields.io/badge/ML-IsolationForest-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ## Features
 - CSV upload and profiling
@@ -24,6 +29,21 @@ AI-powered enterprise data quality and cleaning automation platform.
 - ReportLab
 - Plotly
 - SQLite-ready architecture
+
+## Architecture
+```text
+Upload Dataset
+    ↓
+AI Schema Detection
+    ↓
+Data Quality Analysis
+    ↓
+Data Cleaning Engine
+    ↓
+Outlier Detection
+    ↓
+PDF & CSV Export
+```
 
 ## Project Structure
 ```text
@@ -50,6 +70,15 @@ streamlit run app.py
 4. Clean dataset
 5. Detect outliers
 6. Export cleaned file and PDF report
+
+## Resume Project Entry
+**Cleanlytics AI — AI-Powered Enterprise Data Quality Platform**
+
+- Built a multi-page Streamlit platform for intelligent data cleaning, schema inference, outlier detection, and PDF reporting.
+- Developed AI-based datatype recommendation engine with confidence scoring, issue detection, and manual schema control.
+- Implemented statistical and ML-based anomaly detection using IQR, Z-Score, and Isolation Forest algorithms.
+- Added enterprise-grade backup recovery, cleaning audit logs, PDF exports, and responsive SaaS-style UI architecture.
+- Technologies: Python, Streamlit, Pandas, NumPy, Scikit-learn, ReportLab
 
 ## Author
 Mohit Shah
