@@ -1,0 +1,16 @@
+customer_id,name,email,signup_date,plan,monthly_spend,support_tickets,churned,region
+1001,Aarav Patel,aarav@example.com,2025-01-15,Pro,79.99,2,false,West
+1002,Mia Chen,mia@example.com,2025-01-20,Basic,19.99,0,false,East
+1003,Noah Smith,noah@example.com,2025-02-01,Enterprise,299.99,5,false,Central
+1004,Sophia Lee,,2025-02-08,Pro,89.99,1,false,West
+1005,Liam Garcia,liam@example.com,2025-02-14,Basic,19.99,0,true,South
+1006,Emma Wilson,emma@example.com,2025-02-21,Enterprise,1299.00,18,true,East
+1007,Olivia Brown,olivia@example.com,2025-03-02,Pro,74.99,3,false,North
+1008,William Davis,william@example.com,2025-03-10,Basic,,1,false,South
+1009,Ava Martinez,ava@example.com,2025-03-18,Pro,84.99,2,false,West
+1009,Ava Martinez,ava@example.com,2025-03-18,Pro,84.99,2,false,West
+1010,James Anderson,james@example.com,2025-04-01,Enterprise,310.00,4,false,Central
+1011,Isabella Thomas,isabella@example.com,2025-04-09,Basic,18.99,0,false,North
+1012,Ethan Taylor,ethan@example.com,2025-04-15,Pro,92.50,2,false,East
+1013,Amelia Moore,amelia@example.com,2025-04-22,Basic,17.99,1,true,South
+1014,Lucas Jackson,lucas@example.com,2025-05-03,Enterprise,305.00,6,false,West

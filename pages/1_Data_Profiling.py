@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 from datetime import datetime
+from src.data_formatting import read_csv_with_auto_format
 from src.ui import inject_custom_css, sidebar_branding, page_header, section_title, footer
 
 st.set_page_config(page_title="Data Profiling", page_icon="📊", layout="wide")
@@ -20,10 +21,16 @@ st.caption("Upload once here. Other modules will use the same session dataset.")
 uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 
 if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
+    try:
+        df, format_report = read_csv_with_auto_format(uploaded_file)
+    except Exception as exc:
+        st.error("Unable to read this CSV file.")
+        st.exception(exc)
+        st.stop()
 
     st.session_state["df"] = df
     st.session_state["file_name"] = uploaded_file.name
+    st.session_state["format_report"] = format_report
 
     now = datetime.now()
     timestamp_file = now.strftime("%m_%d_%Y_%H_%M_%S")
@@ -36,11 +43,21 @@ if uploaded_file is not None:
     df.to_csv(backup_path, index=False)
 
     st.success("File uploaded and saved successfully!")
+    if format_report.was_reformatted:
+        st.warning(format_report.message)
+    else:
+        st.info(format_report.message)
     st.info(f"Backup created: {backup_path} at {timestamp_display}")
 
 elif "df" in st.session_state:
     df = st.session_state["df"]
     st.success(f"Using uploaded file: {st.session_state['file_name']}")
+    format_report = st.session_state.get("format_report")
+    if format_report is not None:
+        if format_report.was_reformatted:
+            st.warning(format_report.message)
+        else:
+            st.info(format_report.message)
 
 else:
     st.warning("Please upload a CSV file to start.")
@@ -48,7 +65,7 @@ else:
 
 st.divider()
 with st.container():
-    st.write("## Dataset Preview")
+    st.write("## Formatted Dataset Preview")
     st.dataframe(df.head(), width="stretch")
 
 st.divider()
